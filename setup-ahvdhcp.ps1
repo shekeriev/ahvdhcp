@@ -6,7 +6,7 @@
 #
 # 2022.03.05 - 2024.03.27+
 
-function Create-HVDHCPSetup
+function Create-AHVDHCPSetup
 {
     Write-Host ""
     Write-Host "AHVDHCP Setup Script"
@@ -146,7 +146,7 @@ function Create-HVDHCPSetup
     
 }
 
-function Remove-HVDHCPSetup
+function Remove-AHVDHCPSetup
 {
     Write-Host ""
     Write-Host "AHVDHCP Setup Script"
