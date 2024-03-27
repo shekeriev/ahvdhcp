@@ -52,13 +52,13 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process
 - download the setup script
 
 ```powershell
-Invoke-WebRequest -UseBasicParsing -Uri https://github.com/shekeriev/ahvdhcp/setup-hv-dhcp.ps1 -OutFile setup-ahvdhcp.ps1
+Invoke-WebRequest -UseBasicParsing -Uri https://github.com/shekeriev/ahvdhcp/setup-ahvdhcp.ps1 -OutFile setup-ahvdhcp.ps1
 ```
 
 - source the script (this will make all the functions there available)
 
 ```powershell
-. .\setup-hv-dhcp.ps1
+. .\setup-ahvdhcp.ps1
 ```
 
 - now, to create the switch and the special VM that will act as a DHCP server, execute
