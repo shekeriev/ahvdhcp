@@ -52,7 +52,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process
 - download the setup script
 
 ```powershell
-Invoke-WebRequest -UseBasicParsing -Uri https://github.com/shekeriev/ahvdhcp/setup-ahvdhcp.ps1 -OutFile setup-ahvdhcp.ps1
+Invoke-WebRequest -UseBasicParsing -Uri https://github.com/shekeriev/ahvdhcp/blob/main/setup-ahvdhcp.ps1 -OutFile setup-ahvdhcp.ps1
 ```
 
 - source the script (this will make all the functions there available)
