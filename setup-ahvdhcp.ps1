@@ -4,7 +4,7 @@
 #
 # Used to create or remove an Alpine-based DHCP appliance for use in Hyper-V together with a NAT switch.
 #
-# 2022.03.05 - 2024.03.27+
+# 2022.03.05 - 2024.03.28+
 
 function Create-AHVDHCPSetup
 {
@@ -106,7 +106,31 @@ function Create-AHVDHCPSetup
     }
     
     Write-Host "* Download the virtual machine template at $Env:Programfiles\AHVDHCP" -NoNewline
-    Invoke-WebRequest -UseBasicParsing -Uri https://zahariev.pro/files/ahvdhcp.vhdx -OutFile "$Env:Programfiles\AHVDHCP\AHVDHCP.vhdx"
+    Invoke-WebRequest -UseBasicParsing -Uri https://zahariev.pro/files/ahvdhcp.zip -OutFile "$Env:Programfiles\AHVDHCP\ahvdhcp.zip"
+    if ($?)
+    {
+        Write-Host " ... done."
+    }
+    else
+    {
+        Write-Host " ... error. Exiting."
+        break
+    }
+
+    Write-Host "* Extract the virtual hard drive from the archive" -NoNewline
+    Expand-Archive -LiteralPath "$Env:Programfiles\AHVDHCP\ahvdhcp.zip" -DestinationPath "$Env:Programfiles\AHVDHCP\"
+    if ($?)
+    {
+        Write-Host " ... done."
+    }
+    else
+    {
+        Write-Host " ... error. Exiting."
+        break
+    }
+
+    Write-Host "* Remove the downloaded artefact" -NoNewline
+    Remove-Item -LiteralPath "$Env:Programfiles\AHVDHCP\ahvdhcp.zip" -Force -ErrorAction SilentlyContinue | Out-Null
     if ($?)
     {
         Write-Host " ... done."
